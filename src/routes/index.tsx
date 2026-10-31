@@ -34,8 +34,8 @@ function HomePage() {
     { label: "Plan Today", sub: plan ? "Plan approved — replan" : "7-step workflow", icon: ListChecks, onClick: () => nav({ to: "/plan" }) },
     { label: "Execute Plan", sub: plan ? `${sel.length - done} tasks remaining` : "No approved plan yet", icon: Play, onClick: () => nav({ to: "/execute" }) },
     { label: "Goals & Milestones", sub: "Level A · B · C", icon: Target, onClick: () => setGoalsOpen(true) },
-    { label: "Emergency Switch", sub: "Pause & redirect", icon: Zap, onClick: () => nav({ to: "/execute", search: { emergency: 1 } as never }) },
-    { label: "Daily Closeout", sub: "End your day", icon: Moon, onClick: () => nav({ to: "/execute", search: { closeout: 1 } as never }) },
+    { label: "Emergency Switch", sub: "Pause & redirect", icon: Zap, onClick: () => nav({ to: "/execute", search: { emergency: 1 } }) },
+    { label: "Daily Closeout", sub: "End your day", icon: Moon, onClick: () => nav({ to: "/execute", search: { closeout: 1 } }) },
   ];
 
   return (
