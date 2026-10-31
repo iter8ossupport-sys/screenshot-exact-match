@@ -38,9 +38,9 @@ export interface Task {
   selected: boolean;
   status: TaskStatus;
   elapsedMs: number;
-  startedAt?: number;
-  output?: Record<string, string>;
-  outcomeAchieved?: boolean;
+  startedAt?: number | undefined;
+  output?: Record<string, string> | undefined;
+  outcomeAchieved?: boolean | undefined;
 }
 
 export interface Plan {
@@ -48,7 +48,7 @@ export interface Plan {
   allocation: Record<PriorityId, number>;
   outcomes: Record<PriorityId, string>;
   tasks: Task[];
-  approvedAt?: string;
+  approvedAt?: string | undefined;
 }
 
 export interface Metric {
@@ -80,7 +80,7 @@ export interface Project {
   learning: string;
   documents: string;
   createdAt: string;
-  demo?: boolean;
+  demo?: boolean | undefined;
 }
 
 export type KnowledgeType =
@@ -91,11 +91,11 @@ export interface KnowledgeItem {
   title: string;
   type: KnowledgeType;
   body: string;
-  priorityId?: PriorityId;
-  projectId?: string;
+  priorityId?: PriorityId | undefined;
+  projectId?: string | undefined;
   tags: string;
   createdAt: string;
-  demo?: boolean;
+  demo?: boolean | undefined;
 }
 
 export interface DayRecord {

@@ -66,9 +66,9 @@ export function moveTask(s: OSState, id: string, dir: -1 | 1): OSState {
   const i = sel.findIndex((t) => t.id === id);
   const j = i + dir;
   if (i < 0 || j < 0 || j >= sel.length) return s;
-  const a = tasks.indexOf(sel[i]);
-  const b = tasks.indexOf(sel[j]);
-  [tasks[a], tasks[b]] = [tasks[b], tasks[a]];
+  const a = tasks.indexOf(sel[i]!);
+  const b = tasks.indexOf(sel[j]!);
+  [tasks[a], tasks[b]] = [tasks[b]!, tasks[a]!];
   return { ...s, plan: { ...s.plan, tasks } };
 }
 

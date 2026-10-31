@@ -57,7 +57,7 @@ export function Segmented<T extends string>({ value, options, onChange, classNam
   );
 }
 
-export function Progress({ value, className, tone = "primary" }: { value: number; className?: string; tone?: "primary" | "p1" | "p2" | "p3" }) {
+export function Progress({ value, className, tone = "primary" }: { value: number; className?: string; tone?: "primary" | "p1" | "p2" | "p3" | undefined }) {
   const toneCls = { primary: "bg-gradient-primary", p1: "bg-p1", p2: "bg-p2", p3: "bg-p3" }[tone];
   return (
     <div className={cn("h-1.5 w-full overflow-hidden rounded-full bg-muted", className)}>
@@ -78,7 +78,7 @@ export function PriorityIcon({ id, className }: { id: PriorityId; className?: st
   const I = P_ICON[id];
   return <span className={cn("inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border", P_TONE[id], className)}><I className="h-5 w-5" /></span>;
 }
-export const priorityTone = (id: PriorityId) => (["p1", "p2", "p3"] as const)[id - 1];
+export const priorityTone = (id: PriorityId): "p1" | "p2" | "p3" => (id === 1 ? "p1" : id === 2 ? "p2" : "p3");
 
 export function PageHeader({ eyebrow, title, subtitle, actions }: { eyebrow?: string; title: string; subtitle?: string; actions?: ReactNode }) {
   return (
